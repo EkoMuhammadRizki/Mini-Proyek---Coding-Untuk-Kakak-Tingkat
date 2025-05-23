@@ -7,7 +7,7 @@ int main() {
     int qty, bayar, total = 0; // qty: jumlah barang, bayar: uang dibayar, total: total belanja
 
     // Variabel menyimpan jumlah masing-masing barang di keranjang
-    int total_beras = 0, total_telur = 0, total_sabun = 0;
+    int totalBeras = 0, totalTelur = 0, totalSabun = 0;
 
     printf("Masukkan nama member: "); // Input nama member
     scanf("%s", nama);
@@ -37,11 +37,11 @@ int main() {
 
             // Tambahkan barang ke keranjang
             if (barang == 1) {
-                total_beras += qty;
+                totalBeras += qty;
             } else if (barang == 2) {
-                total_telur += qty;
+                totalTelur += qty;
             } else if (barang == 3) {
-                total_sabun += qty;
+                totalSabun += qty;
             } else {
                 printf("Barang tidak valid.\n"); // Barang tidak ada
             }
@@ -49,13 +49,13 @@ int main() {
         // Pilihan 2: Lihat keranjang
         } else if (pilihan == 2) {
             // Hitung total harga semua barang
-            total = total_beras * 12000 + total_telur * 22000 + total_sabun * 5000;
+            total = totalBeras * 12000 + totalTelur * 22000 + totalSabun * 5000;
             printf("\n=== KERANJANG ===\n");
 
             // Tampilkan isi keranjang
-            if (total_beras > 0) printf("Beras x %d = Rp%d\n", total_beras, total_beras * 12000);
-            if (total_telur > 0) printf("Telur x %d = Rp%d\n", total_telur, total_telur * 22000);
-            if (total_sabun > 0) printf("Sabun x %d = Rp%d\n", total_sabun, total_sabun * 5000);
+            if (totalBeras > 0) printf("Beras x %d = Rp%d\n", totalBeras, totalBeras * 12000);
+            if (totalTelur > 0) printf("Telur x %d = Rp%d\n", totalTelur, totalTelur * 22000);
+            if (totalSabun > 0) printf("Sabun x %d = Rp%d\n", totalSabun, totalSabun * 5000);
             if (total == 0) printf("Keranjang kosong.\n");
 
             // Tampilkan total belanja
@@ -74,14 +74,14 @@ int main() {
             scanf("%d", &qty);
 
             // Kurangi jumlah barang sesuai pilihan
-            if (hapus == 1 && total_beras >= qty) {
-                total_beras -= qty;
+            if (hapus == 1 && totalBeras >= qty) {
+                totalBeras -= qty;
                 printf("Beras dikurangi %d.\n", qty);
-            } else if (hapus == 2 && total_telur >= qty) {
-                total_telur -= qty;
+            } else if (hapus == 2 && totalTelur >= qty) {
+                totalTelur -= qty;
                 printf("Telur dikurangi %d.\n", qty);
-            } else if (hapus == 3 && total_sabun >= qty) {
-                total_sabun -= qty;
+            } else if (hapus == 3 && totalSabun >= qty) {
+                totalSabun -= qty;
                 printf("Sabun dikurangi %d.\n", qty);
             } else {
                 printf("Jumlah tidak valid atau barang belum ada di keranjang.\n");
@@ -90,14 +90,14 @@ int main() {
         // Pilihan 4: Cetak struk dan bayar
         } else if (pilihan == 4) {
             // Hitung total
-            total = total_beras * 12000 + total_telur * 22000 + total_sabun * 5000;
+            total = totalBeras * 12000 + totalTelur * 22000 + totalSabun * 5000;
 
             // Tampilkan struk
             printf("\n=== STRUK PEMBAYARAN ===\n");
             printf("Nama Member: %s\n", nama);
-            if (total_beras > 0) printf("Beras x %d = Rp%d\n", total_beras, total_beras * 12000);
-            if (total_telur > 0) printf("Telur x %d = Rp%d\n", total_telur, total_telur * 22000);
-            if (total_sabun > 0) printf("Sabun x %d = Rp%d\n", total_sabun, total_sabun * 5000);
+            if (totalBeras > 0) printf("Beras x %d = Rp%d\n", totalBeras, totalBeras * 12000);
+            if (totalTelur > 0) printf("Telur x %d = Rp%d\n", totalTelur, totalTelur * 22000);
+            if (totalSabun > 0) printf("Sabun x %d = Rp%d\n", totalSabun, totalSabun * 5000);
             printf("TOTAL BAYAR: Rp%d\n", total);
 
             // Jika keranjang tidak kosong
@@ -110,9 +110,9 @@ int main() {
                     printf("Kembalian: Rp%d\n", bayar - total);
                     printf("Terima kasih telah berbelanja!\n");
                     // Reset keranjang setelah pembayaran
-                    total_beras = 0;
-                    total_telur = 0;
-                    total_sabun = 0;
+                    totalBeras = 0;
+                    totalTelur = 0;
+                    totalSabun = 0;
                 } else {
                     printf("Uang tidak cukup. Transaksi dibatalkan.\n");
                 }
